@@ -33,10 +33,12 @@ h1 {
 
 #pizza-toppings {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 #pizza-toppings-list{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     user-select:none;
 }
@@ -108,4 +110,15 @@ h1 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  /** Mobile Styling **/
+  @media only screen and (max-width: 768px) {
+    #pizza-toppings {
+        justify-content: center;
+    }
+
+    #pizza-toppings-list {
+        padding: 0.25rem;
+    }
   }

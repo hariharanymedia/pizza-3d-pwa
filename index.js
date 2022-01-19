@@ -494,6 +494,15 @@ const addTopping = (e) => {
             .then(res => console.log("service worker registered"))
             .catch(err => console.log("service worker not registered", err));
     }
+
+    // Check for small screen
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 800) {
+    console.log('small screen')
+    let pizzaBase = document.querySelector('a-gltf-model');
+    pizzaBase.setAttribute('position', { x: 0, y: 0, z: -9 });
+    }
+    
     const pizzaToppingUL = document.querySelector('#pizza-toppings-list');
     pizzaToppingUL.addEventListener('click', addTopping);
 })();
