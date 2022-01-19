@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>3D Pizza</title>
+  <link rel="manifest" href="./manifest.json" />
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="./assets/icons/pizza.png" />
+  <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+  <meta name="theme-color" content="#db4938" />
+  
+  <meta name="description" content="3D Pizza">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="icon" href="./assets//icons/pizza.png">
+  <link rel="stylesheet" href="./index.css" />
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+</head>
+
+<body>
+  <h1>Bake Your Own Pizza</h1>
+  <h3>Please go ahead and pick your choice of toppings :</h3>
+  <div id="pizza-toppings">
+    <div id="pizza-toppings-list">
+      <input name="tomato" type="checkbox">Round Tomato</input>
+      <input name="tofu" type="checkbox">Tofu</input>
+      <input name="corn" type="checkbox">Golden Corn</input>
+      <input name="bellPepper" type="checkbox">Bell Pepper</input>
+      <input name="onion" type="checkbox">Onion</input>
+    </div>
+    <div id="pizza-controls">
+      <button name="orderPizza" type="button" onclick="orderPizza()">Bake and Deliver Pizza</button>
+    </div>
+  </div>
+
+  <div id="a-scene-container">
+    <a-scene embedded vr-mode-ui="enabled: false">
+      <a-assets>
+        <!-- Add Assets Below -->
+        <a-asset-item id="pizzaBase" src="./assets/models/basePizza.glb"></a-asset-item>
+        <a-asset-item id="tomato" src="./assets/models/tomato.glb"></a-asset-item>
+        <a-asset-item id="corn" src="./assets/models/corn.glb"></a-asset-item>
+        <a-asset-item id="tofu" src="./assets/models/tofu.glb"></a-asset-item>
+        <a-asset-item id="greenBellPepper" src="./assets/models/greenPepper.glb"></a-asset-item>
+        <a-asset-item id="yellowBellPepper" src="./assets/models/yellowPepper.glb"></a-asset-item>
+        <a-asset-item id="redBellPepper" src="./assets/models/redPepper.glb"></a-asset-item>
+        <a-asset-item id="onion" src="./assets/models/onion.glb"></a-asset-item>
+        <a-asset-item id="onionRing" src="./assets/models/onion_ring.glb"></a-asset-item>
+        <a-asset-item id="texturedTofu" src="./assets/models/tofu_model.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- Primitives. -->
+      <a-sky color="#daa520"></a-sky>
+      <!-- Custom -->
+      <a-gltf-model src="#pizzaBase" position="0 0 -6.5" scale="4 4 4" rotation="0 0 0"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-gltf-model>
+    </a-scene>
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Order Summary</h3>
+        <span class="close">&times;</span>
+      </div>
+      <p name="summaryText"></p>
+    </div>
+
+  </div>
+  <!--custom index js-->
+  <script src="./index.js"></script>
+</body>
+
+</html>
